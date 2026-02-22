@@ -35,13 +35,18 @@ int main() {
         cout << "Complete!" << endl;
 
     //loop to display elements in runTimes
-    cout << "10 kilometer run times in minutes from the past 35 days:" << endl;
+    cout << "10 kilometer run times (in minutes) from the past 35 days:" << endl;
     displayTimes(runTimes);
+
+    //accessing individual run times
+    cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
+    cout << "Most recent run time: " << runTimes.back() << " minutes" << endl;
+    cout << "Run time on day #10: " << runTimes.at(9) << " minutes" << endl;
 
     return 0;
 }
 
-void displayTimes(const array<double, SIZE> arr) {
+void displayTimes(const array<double, SIZE> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
         cout << arr[i]; 
         if (i < arr.size() - 1)
