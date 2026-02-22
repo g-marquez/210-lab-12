@@ -39,7 +39,7 @@ int main() {
     cout << "10 kilometer run times (in minutes) from the past 35 days:" << endl;
     displayTimes(runTimes);
 
-    //accessing individual run times
+    //accessing individual run times with .front(), .back(), and .at()
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
     cout << "Most recent run time: " << runTimes.back() << " minutes" << endl;
     cout << "Run time on day #10: " << runTimes.at(9) << " minutes" << endl << endl;
@@ -52,7 +52,7 @@ int main() {
     cout << "Run times sorted from slowest to fastest:" << endl;
     displayTimes(runTimes);
 
-    //using an iterator to find a specific run time
+    //using an iterator in a function to find a specific run time
     double time1 = 100.34;
     findTime(runTimes, time1);
     double time2 = 64.55;
@@ -74,13 +74,18 @@ void displayTimes(const array<double, SIZE> &arr) {
     cout << endl << endl;
 }
 
+// findTime() takes an std::array by reference and outputs the target's index
+// if found and a "not found" message if not
+// arguments: an std::array, a target time of type double
+// returns: n/a
 void findTime(array<double, SIZE> &arr, double target) {
     array<double, SIZE>::iterator it; //iterator to point to found element
     it = find(arr.begin(), arr.end(), target);
     cout << "Searching for time: " << target << " minutes..." << endl;
-    cout << *it;
+    cout << target;
     if (it != arr.end())
         cout << " found in position " << it - arr.begin() << endl;
     else
         cout << " was not found.\n";
+    cout << endl;
 }
