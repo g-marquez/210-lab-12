@@ -13,6 +13,7 @@ using namespace std;
 
 const int SIZE = 35;
 const int DAYS = 7;
+const int WEEKS = 5;
 
 void displayTimes(const array<double, SIZE> &);
 void displayTimes(const array<double, DAYS> &);
@@ -43,26 +44,26 @@ int main() {
     displayTimes(runTimes);
 
     //using a 2D array to group times by week
+    //creating arrays for each week first
     array<double, DAYS> week1;
     populateArray(week1, runTimes);
-    cout << "Week 1 run times:" << endl;
-    displayTimes(week1);
     array<double, DAYS> week2;
     populateArray(week2, runTimes);
-    cout << "Week 2 run times:" << endl;
-    displayTimes(week2);
     array<double, DAYS> week3;
     populateArray(week3, runTimes);
-    cout << "Week 3 run times:" << endl;
-    displayTimes(week3);
     array<double, DAYS> week4;
     populateArray(week4, runTimes);
-    cout << "Week 4 run times:" << endl;
-    displayTimes(week4);
     array<double, DAYS> week5;
     populateArray(week5, runTimes);
-    cout << "Week 5 run times:" << endl;
-    displayTimes(week5);
+
+    //create and populate 2D array using week arrays
+    array<array<double, DAYS>, WEEKS> weeklyRunTimes = {
+        week1, week2, week3, week4, week5};
+    cout << "Weekly view of run time:" << endl;
+    for (int i = 0; i < weeklyRunTimes.size(); ++i) {
+        for (int j = 0; j < weeklyRunTimes[i].size(), ++j)
+            
+    }
 
     //accessing individual run times with .front(), .back(), and .at()
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
@@ -150,5 +151,4 @@ void populateArray(array<double, DAYS> &to, const array<double, SIZE> &from) {
         to.at(i) = from.at(index);
         index++;
     }
-
 }
