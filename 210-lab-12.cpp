@@ -12,12 +12,12 @@
 using namespace std;
 
 const int SIZE = 35;
-const int WEEK = 7;
+const int DAYS = 7;
 
 void displayTimes(const array<double, SIZE> &);
-void displayTimes(const array<double, WEEK> &);
+void displayTimes(const array<double, DAYS> &);
 void findTime(array<double, SIZE> &, double);
-void populateArray(array<double, WEEK> &, const array<double, SIZE> &);
+void populateArray(array<double, DAYS> &, const array<double, SIZE> &);
 
 int main() {
     //declare std::array of SIZE 35 via reading data from a file,
@@ -43,23 +43,23 @@ int main() {
     displayTimes(runTimes);
 
     //using a 2D array to group times by week
-    array<double, WEEK> week1;
+    array<double, DAYS> week1;
     populateArray(week1, runTimes);
     cout << "Week 1 run times:" << endl;
     displayTimes(week1);
-    array<double, WEEK> week2;
+    array<double, DAYS> week2;
     populateArray(week2, runTimes);
     cout << "Week 2 run times:" << endl;
     displayTimes(week2);
-    array<double, WEEK> week3;
+    array<double, DAYS> week3;
     populateArray(week3, runTimes);
     cout << "Week 3 run times:" << endl;
     displayTimes(week3);
-    array<double, WEEK> week4;
+    array<double, DAYS> week4;
     populateArray(week4, runTimes);
     cout << "Week 4 run times:" << endl;
     displayTimes(week4);
-    array<double, WEEK> week5;
+    array<double, DAYS> week5;
     populateArray(week5, runTimes);
     cout << "Week 5 run times:" << endl;
     displayTimes(week5);
@@ -108,11 +108,11 @@ void displayTimes(const array<double, SIZE> &arr) {
     cout << endl << endl;
 }
 
-// displayTimes() takes an std::array of size WEEK by constant reference and
+// displayTimes() takes an std::array of size DAYS by constant reference and
 // outputs its members to the console, formatted with a comma separator.
 // arguments: an std::array
 // returns: n/a
-void displayTimes(const array<double, WEEK> &arr) {
+void displayTimes(const array<double, DAYS> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
         cout << arr[i]; 
         if (i < arr.size() - 1)
@@ -121,8 +121,8 @@ void displayTimes(const array<double, WEEK> &arr) {
     cout << endl << endl;
 }
 
-// findTime() takes an std::array by reference and outputs the target's index
-// if found and a "not found" message if not
+// findTime() takes an std::array of size SIZE by reference and outputs the
+// target's index if found and a "not found" message if not
 // note: cannot pass std::array by constant reference here
 // arguments: an std::array, a target time of type double
 // returns: n/a
@@ -138,15 +138,17 @@ void findTime(array<double, SIZE> &arr, double target) {
     cout << endl;
 }
 
-// populateArray() takes an std::array by reference and populates its
-// members using elemens from a second std::array passed by constant reference.
+// populateArray() takes an std::array of size DAYS by reference and
+// populates its members using elemens from a second std::array of
+// size SIZE passed by constant reference.
 // arguments: an std::array passed by reference, an std::array passed by
 // constant reference
 // returns: n/a
-void populateArray(array<double, WEEK> &to, const array<double, SIZE> &from) {
+void populateArray(array<double, DAYS> &to, const array<double, SIZE> &from) {
     static int index = 0;
-    for (int i = 0; i < to.size(); ++i)
+    for (int i = 0; i < to.size(); ++i) {
         to.at(i) = from.at(index);
         index++;
+    }
 
 }
