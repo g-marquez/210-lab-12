@@ -16,7 +16,7 @@ const int WEEK = 7;
 
 void displayTimes(const array<double, SIZE> &);
 void findTime(array<double, SIZE> &, double);
-array<double, WEEK>populateArray(array<double, WEEK> &, const array<double, SIZE> &);
+void populateArray(array<double, WEEK> &, const array<double, SIZE> &);
 
 int main() {
     //declare std::array of SIZE 35 via reading data from a file,
@@ -70,7 +70,9 @@ int main() {
     cout << endl << endl;
 
     //using a 2D array to group times by week
-    array<double, WEEK> week1 = populateArray(week1, runTimes);
+    array<double, WEEK> week1;
+    populateArray(week1, runTimes);
+    displayTimes(week1);
 
     return 0;
 }
@@ -79,7 +81,7 @@ int main() {
 // members to the console, formatted with a comma separator.
 // arguments: an std::array
 // returns: n/a
-void displayTimes(const array<double, SIZE> &arr) {
+void displayTimes(const array<double, arr.size()> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
         cout << arr[i]; 
         if (i < arr.size() - 1)
@@ -105,9 +107,13 @@ void findTime(array<double, SIZE> &arr, double target) {
     cout << endl;
 }
 
-array<double, WEEK> populateArray(array<double, WEEK> &destination, const array<double, SIZE> &) {
-    for (int i = 0; i < destination.size(); ++i)
-            fin >> destination.at(i);
+// populateArray() takes an std::array by reference and populates its
+// members using elemens from a second std::array passed by constant reference.
+// arguments: an std::array passed by reference, an std::array passed by
+// constant reference
+// returns: n/a
+void populateArray(array<double, WEEK> &to, const array<double, SIZE> &from) {
+    for (int i = 0; i < to.size(); ++i)
+            to.at(i) = from.at(i);
 
-    return arr;
 }
