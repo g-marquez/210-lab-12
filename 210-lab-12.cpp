@@ -12,9 +12,11 @@
 using namespace std;
 
 const int SIZE = 35;
+const int WEEK = 7;
 
 void displayTimes(const array<double, SIZE> &);
 void findTime(array<double, SIZE> &, double);
+array<double, WEEK>populateArray(array<double, WEEK> &, const array<double, SIZE> &);
 
 int main() {
     //declare std::array of SIZE 35 via reading data from a file,
@@ -67,6 +69,9 @@ int main() {
     cout << accumulate(runTimes.begin(), runTimes.end(), 0) << " minutes" << endl;
     cout << endl << endl;
 
+    //using a 2D array to group times by week
+    array<double, WEEK> week1 = populateArray(week1, runTimes);
+
     return 0;
 }
 
@@ -98,4 +103,11 @@ void findTime(array<double, SIZE> &arr, double target) {
     else
         cout << " was not found.\n";
     cout << endl;
+}
+
+array<double, WEEK> populateArray(array<double, WEEK> &destination, const array<double, SIZE> &) {
+    for (int i = 0; i < destination.size(); ++i)
+            fin >> destination.at(i);
+
+    return arr;
 }
