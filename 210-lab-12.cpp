@@ -29,8 +29,13 @@ int main() {
         return 1;
     }
 
-    //range loop to display elements in runTimes
-    for (double val:runTimes) cout << val << " "; cout << endl;
+    //loop to display elements in runTimes
+    for (int i = 0; i < runTimes.size(); ++i) {
+        cout << runTimes[i]; 
+        if (i < runTimes.size() - 1)
+            cout << ", ";
+    }
+    cout << endl;
 
     return 0;
 }
