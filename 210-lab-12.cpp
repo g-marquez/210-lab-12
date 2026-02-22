@@ -57,13 +57,16 @@ int main() {
     populateArray(week5, runTimes);
 
     //create and populate 2D array using week arrays
-    array<array<double, DAYS>, WEEKS> weeklyRunTimes = {
-        week1, week2, week3, week4, week5};
-    cout << "Weekly view of run time:" << endl;
+    array<array<double, DAYS>, WEEKS> weeklyRunTimes = {week1, week2, week3,
+                                                        week4, week5};
+    cout << "Weekly view of run times:" << endl;
     for (int i = 0; i < weeklyRunTimes.size(); ++i) {
-        for (int j = 0; j < weeklyRunTimes[i].size(), ++j)
-            
+        cout << "Week " << i+1 << ": ";
+        for (int j = 0; j < weeklyRunTimes[i].size(); ++j) 
+            cout << weeklyRunTimes[i][j] << " ";
+        cout << endl;
     }
+    cout << endl;
 
     //accessing individual run times with .front(), .back(), and .at()
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
