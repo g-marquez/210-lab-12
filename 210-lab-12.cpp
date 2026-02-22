@@ -89,6 +89,7 @@ int main() {
     cout << accumulate(runTimes.begin(), runTimes.end(), 0) << " minutes" << endl;
     cout << endl;
 
+    cout << "Summary complete.";
     return 0;
 }
 
