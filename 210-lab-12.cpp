@@ -58,11 +58,14 @@ int main() {
     double time2 = 64.55;
     findTime(runTimes, time2);
 
-    //finding the max, min, and sum of all run times
+    //finding the slowest, fastest, and sum of all run times
     cout << "Slowest run time: "
          << *max_element(runTimes.begin(), runTimes.end()) << " minutes" << endl; 
     cout << "Fastest run time: "
          << *min_element(runTimes.begin(), runTimes.end()) << " minutes" << endl;
+    cout << "Total minutes run over the last " << runTimes.size() << " days: ";
+    cout << accumulate(runTimes.begin(), runTimes.end(), 0) << " minutes" << endl;
+    cout << endl << endl;
 
     return 0;
 }
