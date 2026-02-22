@@ -41,12 +41,19 @@ int main() {
     //accessing individual run times
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
     cout << "Most recent run time: " << runTimes.back() << " minutes" << endl;
-    cout << "Run time on day #10: " << runTimes.at(9) << " minutes" << endl;
+    cout << "Run time on day #10: " << runTimes.at(9) << " minutes" << endl << endl;
 
     //using iterators to sort and reverse runTimes
     sort(runTimes.begin(), runTimes.end());
     cout << "Run times sorted from fastest to slowest:" << endl;
     displayTimes(runTimes);
+    sort(runTimes.rbegin(), runTimes.rend());
+    cout << "Run times sorted from slowest to fastest:" << endl;
+    displayTimes(runTimes);
+
+    //using an iterator to find a specific run time
+    double time1 = 100.34;
+    double time2 = 
 
     return 0;
 }
@@ -61,5 +68,5 @@ void displayTimes(const array<double, SIZE> &arr) {
         if (i < arr.size() - 1)
             cout << ", ";
     }
-    cout << endl;
+    cout << endl << endl;
 }
