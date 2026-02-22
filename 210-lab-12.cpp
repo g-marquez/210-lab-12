@@ -13,6 +13,8 @@ using namespace std;
 
 const int SIZE = 35;
 
+void displayTimes(const array<double, SIZE> &);
+
 int main() {
     //declare std::array of SIZE 35 via reading data from a file,
     //using .size() to loop through the array and .at(i) to
@@ -30,16 +32,20 @@ int main() {
         return 1;
     }
     if (!runTimes.empty())
-        cout
+        cout << "Complete!" << endl;
 
     //loop to display elements in runTimes
     cout << "10 kilometer run times in minutes from the past 35 days:" << endl;
-    for (int i = 0; i < runTimes.size(); ++i) {
-        cout << runTimes[i]; 
-        if (i < runTimes.size() - 1)
+    displayTimes(runTimes);
+
+    return 0;
+}
+
+void displayTimes(const array<double, SIZE> arr) {
+    for (int i = 0; i < arr.size(); ++i) {
+        cout << arr[i]; 
+        if (i < arr.size() - 1)
             cout << ", ";
     }
     cout << endl;
-
-    return 0;
 }
