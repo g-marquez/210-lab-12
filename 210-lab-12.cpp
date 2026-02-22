@@ -127,8 +127,8 @@ void displayTimes(const array<array<double, DAYS>, WEEKS> &arr) {
 // returns: n/a
 void findTime(array<double, SIZE> &arr, double target) {
     array<double, SIZE>::iterator it; //iterator to point to found element
-    it = find(arr.begin(), arr.end(), target);
     cout << "Searching for time: " << target << " minutes..." << endl;
+    it = find(arr.begin(), arr.end(), target);
     cout << target;
     if (it != arr.end())
         cout << " found in position " << it - arr.begin() << endl;
@@ -144,7 +144,7 @@ void findTime(array<double, SIZE> &arr, double target) {
 // constant reference
 // returns: n/a
 void populateArray(array<double, DAYS> &to, const array<double, SIZE> &from) {
-    static int index = 0;
+    static int index = 0; //so that inex doesn't reset after each function call
     for (int i = 0; i < to.size(); ++i) {
         to.at(i) = from.at(index);
         index++;
