@@ -58,6 +58,12 @@ int main() {
     double time2 = 64.55;
     findTime(runTimes, time2);
 
+    //finding the max, min, and sum of all run times
+    cout << "Slowest run time: "
+         << *max_element(runTimes.begin(), runTimes.end()) << " minutes" << endl; 
+    cout << "Fastest run time: "
+         << *min_element(runTimes.begin(), runTimes.end()) << " minutes" << endl;
+
     return 0;
 }
 
@@ -76,6 +82,7 @@ void displayTimes(const array<double, SIZE> &arr) {
 
 // findTime() takes an std::array by reference and outputs the target's index
 // if found and a "not found" message if not
+// note: cannot pass std::array by constant reference here
 // arguments: an std::array, a target time of type double
 // returns: n/a
 void findTime(array<double, SIZE> &arr, double target) {
