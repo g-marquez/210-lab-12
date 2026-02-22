@@ -45,8 +45,24 @@ int main() {
     //using a 2D array to group times by week
     array<double, WEEK> week1;
     populateArray(week1, runTimes);
+    cout << "Week 1 run times:" << endl;
     displayTimes(week1);
-
+    array<double, WEEK> week2;
+    populateArray(week2, runTimes);
+    cout << "Week 2 run times:" << endl;
+    displayTimes(week2);
+    array<double, WEEK> week3;
+    populateArray(week3, runTimes);
+    cout << "Week 3 run times:" << endl;
+    displayTimes(week3);
+    array<double, WEEK> week4;
+    populateArray(week4, runTimes);
+    cout << "Week 4 run times:" << endl;
+    displayTimes(week4);
+    array<double, WEEK> week5;
+    populateArray(week5, runTimes);
+    cout << "Week 5 run times:" << endl;
+    displayTimes(week5);
 
     //accessing individual run times with .front(), .back(), and .at()
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
@@ -128,7 +144,9 @@ void findTime(array<double, SIZE> &arr, double target) {
 // constant reference
 // returns: n/a
 void populateArray(array<double, WEEK> &to, const array<double, SIZE> &from) {
+    static int index = 0;
     for (int i = 0; i < to.size(); ++i)
-            to.at(i) = from.at(i);
+        to.at(i) = from.at(index);
+        index++;
 
 }
