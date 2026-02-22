@@ -15,6 +15,7 @@ const int SIZE = 35;
 const int WEEK = 7;
 
 void displayTimes(const array<double, SIZE> &);
+void displayTimes(const array<double, WEEK> &);
 void findTime(array<double, SIZE> &, double);
 void populateArray(array<double, WEEK> &, const array<double, SIZE> &);
 
@@ -40,6 +41,12 @@ int main() {
     //loop to display elements in runTimes
     cout << "10 kilometer run times (in minutes) from the past 35 days:" << endl;
     displayTimes(runTimes);
+
+    //using a 2D array to group times by week
+    array<double, WEEK> week1;
+    populateArray(week1, runTimes);
+    displayTimes(week1);
+
 
     //accessing individual run times with .front(), .back(), and .at()
     cout << "Oldest run time: " <<  runTimes.front() << " minutes" << endl;
@@ -67,21 +74,29 @@ int main() {
          << *min_element(runTimes.begin(), runTimes.end()) << " minutes" << endl;
     cout << "Total minutes run over the last " << runTimes.size() << " days: ";
     cout << accumulate(runTimes.begin(), runTimes.end(), 0) << " minutes" << endl;
-    cout << endl << endl;
-
-    //using a 2D array to group times by week
-    array<double, WEEK> week1;
-    populateArray(week1, runTimes);
-    displayTimes(week1);
+    cout << endl;
 
     return 0;
 }
 
-// displayTimes() takes an std::array by constant reference and outputs its
-// members to the console, formatted with a comma separator.
+// displayTimes() takes an std::array of size SIZE by constant reference and
+// outputs its members to the console, formatted with a comma separator.
 // arguments: an std::array
 // returns: n/a
-void displayTimes(const array<double, arr.size()> &arr) {
+void displayTimes(const array<double, SIZE> &arr) {
+    for (int i = 0; i < arr.size(); ++i) {
+        cout << arr[i]; 
+        if (i < arr.size() - 1)
+            cout << ", ";
+    }
+    cout << endl << endl;
+}
+
+// displayTimes() takes an std::array of size WEEK by constant reference and
+// outputs its members to the console, formatted with a comma separator.
+// arguments: an std::array
+// returns: n/a
+void displayTimes(const array<double, WEEK> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
         cout << arr[i]; 
         if (i < arr.size() - 1)
