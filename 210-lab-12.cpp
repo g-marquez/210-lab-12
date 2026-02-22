@@ -43,9 +43,18 @@ int main() {
     cout << "Most recent run time: " << runTimes.back() << " minutes" << endl;
     cout << "Run time on day #10: " << runTimes.at(9) << " minutes" << endl;
 
+    //using iterators to sort and reverse runTimes
+    sort(runTimes.begin(), runTimes.end());
+    cout << "Run times sorted from fastest to slowest:" << endl;
+    displayTimes(runTimes);
+
     return 0;
 }
 
+// displayTimes() takes an std::array by constant reference and outputs its
+// members to the console, formatted with a comma separator.
+// arguments: an std::array
+// returns: n/a
 void displayTimes(const array<double, SIZE> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
         cout << arr[i]; 
