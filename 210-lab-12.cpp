@@ -14,6 +14,7 @@ using namespace std;
 const int SIZE = 35;
 
 void displayTimes(const array<double, SIZE> &);
+void findTime(array<double, SIZE> &, double);
 
 int main() {
     //declare std::array of SIZE 35 via reading data from a file,
@@ -53,7 +54,9 @@ int main() {
 
     //using an iterator to find a specific run time
     double time1 = 100.34;
-    double time2 = 
+    findTime(runTimes, time1);
+    double time2 = 64.55;
+    findTime(runTimes, time2);
 
     return 0;
 }
@@ -69,4 +72,15 @@ void displayTimes(const array<double, SIZE> &arr) {
             cout << ", ";
     }
     cout << endl << endl;
+}
+
+void findTime(array<double, SIZE> &arr, double target) {
+    array<double, SIZE>::iterator it; //iterator to point to found element
+    it = find(arr.begin(), arr.end(), target);
+    cout << "Searching for time: " << target << " minutes..." << endl;
+    cout << *it;
+    if (it != arr.end())
+        cout << " found in position " << it - arr.begin() << endl;
+    else
+        cout << " was not found.\n";
 }
