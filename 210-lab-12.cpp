@@ -99,7 +99,7 @@ int main() {
 // returns: n/a
 void displayTimes(const array<double, SIZE> &arr) {
     for (int i = 0; i < arr.size(); ++i) {
-        cout << arr[i]; 
+        cout << arr[i];
         if (i < arr.size() - 1)
             cout << ", ";
     }
@@ -145,7 +145,7 @@ void findTime(array<double, SIZE> &arr, double target) {
 // constant reference
 // returns: n/a
 void populateArray(array<double, DAYS> &to, const array<double, SIZE> &from) {
-    static int index = 0; //so that inex doesn't reset after each function call
+    static int index = 0; //so that index doesn't reset after each function call
     for (int i = 0; i < to.size(); ++i) {
         to.at(i) = from.at(index);
         index++;
